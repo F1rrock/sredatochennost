@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_sredatochennost/pages/main_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:project_sredatochennost/pages/registration/confirm_email.dart';
 
 
 Future < void > main ( ) async {
@@ -61,11 +62,11 @@ class MyApp extends StatelessWidget {
 
             initialRoute: '/',
 
-            routes: {
+            routes: < String, WidgetBuilder > {
 
-              '/': ( context ) => const MainPage ( ),
+              '/': ( _ ) => const MainPage ( ),
 
-              //'/authorization': ( context ) => const AuthorizationPage ( ),
+              '/confirmEmail': ( _ ) => const ConfirmEmailPage ( ),
 
             },
 

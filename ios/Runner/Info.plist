@@ -41,7 +41,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<!-- Add this array for Deep Links -->
       <key>CFBundleURLTypes</key>
       <array>
         <dict>
