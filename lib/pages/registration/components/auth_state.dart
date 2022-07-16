@@ -2,27 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:project_sredatochennost/utils/constants.dart';
 
-class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
+class AuthState < T extends StatefulWidget > extends SupabaseAuthState < T > {
+
   @override
-  void onUnauthenticated() {
-    if (mounted) {
-      Navigator.of(context).pushNamedAndRemoveUntil('/checkEmail', (route) => false);
+  void onUnauthenticated ( ) {
+
+    if ( mounted ) {
+
+      Navigator.of ( context ).pushNamedAndRemoveUntil( '/checkEmail', ( route ) => false );
+
+    }
+
+  }
+
+  @override
+  void onAuthenticated ( Session session ) {
+
+    if ( mounted ) {
+
+      Navigator.of ( context )
+          .pushNamedAndRemoveUntil( '/registration', ( route ) => false );
+
     }
   }
 
   @override
-  void onAuthenticated(Session session) {
-    if (mounted) {
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil('/', (route) => false);
-    }
-  }
+  void onPasswordRecovery ( Session session ) { }
 
   @override
-  void onPasswordRecovery(Session session) {}
+  void onErrorAuthenticating ( String message ) {
 
-  @override
-  void onErrorAuthenticating(String message) {
     context.showErrorSnackBar(message: message);
+
   }
+
 }

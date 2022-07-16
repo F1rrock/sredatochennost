@@ -1,4 +1,5 @@
 // ignore_for_file: depend_on_referenced_packages, library_private_types_in_public_api, use_build_context_synchronously
+// flutter run -d web-server --web-hostname localhost --web-port 3000
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -107,7 +108,7 @@ class _ConfirmEmailPage extends AuthState < ConfirmEmailPage > {
 
             controller: _emailController,
 
-            decoration: const InputDecoration( labelText: 'Email' ),
+            decoration: const InputDecoration ( labelText: 'Ваша почта' ),
 
           ),
 
@@ -117,7 +118,7 @@ class _ConfirmEmailPage extends AuthState < ConfirmEmailPage > {
 
             onPressed: _isLoading ? null : _signIn,
 
-            child: Text(_isLoading ? 'Загрузка' : 'Подтвердить почту'),
+            child: Text( _isLoading ? 'Немного ожидания' : 'Подтвердить почту' ),
 
           ),
 

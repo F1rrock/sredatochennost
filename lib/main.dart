@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_sredatochennost/pages/main_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:project_sredatochennost/pages/registration/confirm_email.dart';
-
+import 'package:project_sredatochennost/pages/registration/registration_page.dart';
 
 Future < void > main ( ) async {
 
@@ -67,6 +67,8 @@ class MyApp extends StatelessWidget {
               '/': ( _ ) => const MainPage ( ),
 
               '/confirmEmail': ( _ ) => const ConfirmEmailPage ( ),
+
+              '/registration': ( _ ) => const RegistrationPage ( ),
 
             },
 
