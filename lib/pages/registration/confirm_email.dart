@@ -55,7 +55,7 @@ class _ConfirmEmailPage extends AuthState < ConfirmEmailPage > {
 
     } else {
 
-      context.showSnackBar ( message: 'проверьте почту на наличие волшебных ссылок!' );
+      context.showSnackBar ( message: 'проверьте почту на наличие ссылок для дальнейшей регистрации!' );
 
       _emailController.clear ( );
 
@@ -107,6 +107,8 @@ class _ConfirmEmailPage extends AuthState < ConfirmEmailPage > {
           TextFormField (
 
             controller: _emailController,
+
+            keyboardType: TextInputType.emailAddress,
 
             decoration: const InputDecoration ( labelText: 'Ваша почта' ),
 
