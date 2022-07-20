@@ -55,8 +55,6 @@ class _HelloPageState extends State < HelloPage > {
 
               onPressed: ( ) {
 
-                print ( 'menu' );
-
               },
 
             ),
@@ -77,13 +75,9 @@ class _HelloPageState extends State < HelloPage > {
 
                   },
 
-                  icon: const Icon (
-
-                    Icons.wb_sunny_outlined,
-
-                  ),
-
                   tooltip: 'здесь можно сменить цветовую тему',
+
+                  icon: isDark ? Icon(Icons.nights_stay_sharp) : Icon(Icons.wb_sunny_outlined),
 
                 ),
 
@@ -93,7 +87,7 @@ class _HelloPageState extends State < HelloPage > {
 
                   onPressed: ( ) {
 
-                    print ( 'account' );
+
 
                   },
 
@@ -145,11 +139,11 @@ class _HelloPageState extends State < HelloPage > {
 
                       if ( Platform.isAndroid || Platform.isIOS ) {
 
-                        Navigator.of(context).pushNamed( '/confirmEmail' );
+                        Navigator.of ( context ).pushNamed( '/confirmEmail' );
 
                       } else {
 
-                        print ( 'other platform' );
+
 
                       }
 

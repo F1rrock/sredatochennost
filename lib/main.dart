@@ -29,7 +29,7 @@ Future < void > main ( ) async {
 }
 
 
-final darkNotifier = ValueNotifier < bool > ( false );
+var darkNotifier = ValueNotifier < bool > ( false );
 
 class MyApp extends StatelessWidget {
 
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
 
           return MaterialApp (
 
-            title: 'Flutter Demo',
+            title: 'Проект СРЕДАточенность',
 
             themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
 
