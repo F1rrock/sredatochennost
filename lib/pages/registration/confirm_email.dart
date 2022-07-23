@@ -90,41 +90,55 @@ class _ConfirmEmailPage extends AuthState < ConfirmEmailPage > {
   @override
   Widget build ( BuildContext context ) {
 
-    return Scaffold (
+    return SafeArea (
 
-      appBar: AppBar ( title: const Text ( 'Вход' ) ),
+      child: DefaultTabController(
 
-      body: ListView (
+        length: 2,
 
-        padding: const EdgeInsets.symmetric ( vertical: 18, horizontal: 12 ),
+        child: Scaffold (
 
-        children: < Widget > [
+          appBar: AppBar (
 
-          const Text ( 'Для начала подтвердите свою почту' ),
-
-          const SizedBox ( height: 18 ),
-
-          TextFormField (
-
-            controller: _emailController,
-
-            keyboardType: TextInputType.emailAddress,
-
-            decoration: const InputDecoration ( labelText: 'Ваша почта' ),
+            title: const Text ( 'Вход' ),
 
           ),
 
-          const SizedBox ( height: 18 ),
+          body: ListView (
 
-          ElevatedButton (
+            padding: const EdgeInsets.symmetric ( vertical: 18, horizontal: 12 ),
 
-            onPressed: _isLoading ? null : _signIn,
+            children: < Widget > [
 
-            child: Text( _isLoading ? 'Немного ожидания' : 'Подтвердить почту' ),
+              const Text ( 'Для начала подтвердите свою почту' ),
+
+              const SizedBox ( height: 18 ),
+
+              TextFormField (
+
+                controller: _emailController,
+
+                keyboardType: TextInputType.emailAddress,
+
+                decoration: const InputDecoration ( labelText: 'Ваша почта' ),
+
+              ),
+
+              const SizedBox ( height: 18 ),
+
+              ElevatedButton (
+
+                onPressed: _isLoading ? null : _signIn,
+
+                child: Text( _isLoading ? 'Немного ожидания' : 'Подтвердить почту' ),
+
+              ),
+
+            ],
 
           ),
 
-        ],
+        ),
 
       ),
 

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project_sredatochennost/modules/txt_reader.dart';
 import 'package:project_sredatochennost/main.dart';
 
@@ -13,7 +14,14 @@ class HelloPage extends StatefulWidget {
 
 }
 
-class _HelloPageState extends State < HelloPage > {
+class HomeBody extends StatefulWidget {
+  const HomeBody({Key? key}) : super(key: key);
+
+  @override
+  State<HomeBody> createState() => _HomeBodyState();
+}
+
+class _HomeBodyState extends State<HomeBody> {
 
   final TxtReader reader = TxtReader ( );
 
@@ -24,90 +32,10 @@ class _HelloPageState extends State < HelloPage > {
   );
 
   @override
-  void dispose() {
+  Widget build(BuildContext context) {
+    return Scrollbar(
 
-    // TODO: implement dispose
-
-    darkNotifier.dispose();
-
-    super.dispose();
-
-  }
-
-  @override
-  Widget build ( BuildContext context ) {
-
-    bool isDark = darkNotifier.value;
-
-    return SafeArea ( child: Scaffold (
-
-      appBar: AppBar (
-
-        title: Row (
-
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-          children: < Widget > [
-
-            IconButton (
-
-              icon: const Icon ( Icons.menu ),
-
-              onPressed: ( ) {
-
-              },
-
-            ),
-
-            const Text ( "СРЕДАточенность" ),
-
-            Row (
-
-              children: < Widget > [
-
-                IconButton (
-
-                  onPressed: ( ) async {
-
-                    isDark = ! isDark;
-
-                    darkNotifier.value = isDark;
-
-                  },
-
-                  tooltip: 'здесь можно сменить цветовую тему',
-
-                  icon: isDark ? Icon(Icons.nights_stay_sharp) : Icon(Icons.wb_sunny_outlined),
-
-                ),
-
-                IconButton (
-
-                  icon: const Icon ( Icons.account_circle ),
-
-                  onPressed: ( ) {
-
-
-
-                  },
-
-                  tooltip: 'войти в свой аккаунт',
-
-                ),
-
-              ],
-
-            )
-
-          ],
-
-        ),
-
-        centerTitle: true,
-
-      ),
-
-      body: SingleChildScrollView (
+        child: SingleChildScrollView (
 
           child: Row (
 
@@ -149,14 +77,6 @@ class _HelloPageState extends State < HelloPage > {
 
                     },
 
-                    style: ElevatedButton.styleFrom(
-
-                      primary: Colors.green,
-
-                      onPrimary: Colors.white,
-
-                    ),
-
                     child: const Tooltip (
 
                       message: 'присоединяйтесь к семье средаточенность прямо сейчас',
@@ -175,11 +95,110 @@ class _HelloPageState extends State < HelloPage > {
 
             ],
 
+          ),
+
         ),
+
+      );
+
+    }
+
+}
+
+
+class _HelloPageState extends State < HelloPage > {
+
+  @override
+  void dispose() {
+
+    // TODO: implement dispose
+
+    darkNotifier.dispose();
+
+    super.dispose();
+
+  }
+
+  @override
+  Widget build ( BuildContext context ) {
+
+    bool isDark = darkNotifier.value;
+
+    return Container( color: Colors.greenAccent, child: SafeArea ( child: Scaffold (
+
+      appBar: AppBar (
+
+        title: Row (
+
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+          children: < Widget > [
+
+            IconButton (
+
+              icon: const Icon ( Icons.menu ),
+
+              onPressed: ( ) {
+
+              },
+
+            ),
+
+            const Text ( "СРЕДАточенность" ),
+
+            Row (
+
+              children: < Widget > [
+
+                IconButton (
+
+                  onPressed: ( ) async {
+
+                    setState ( ( ) {
+
+                      isDark = !isDark;
+
+                    } );
+
+                    darkNotifier.value = isDark;
+
+                  },
+
+                  tooltip: 'здесь можно сменить цветовую тему',
+
+                  icon: Icon ( isDark ? Icons.nights_stay_sharp : Icons.wb_sunny_outlined ),
+
+                ),
+
+                IconButton (
+
+                  icon: const Icon ( Icons.account_circle ),
+
+                  onPressed: ( ) {
+
+
+
+                  },
+
+                  tooltip: 'войти в свой аккаунт',
+
+                ),
+
+              ],
+
+            )
+
+          ],
+
+        ),
+
+        centerTitle: true,
 
       ),
 
-    ), );
+      body: const HomeBody ( ),
+
+    ), ), );
 
   }
 

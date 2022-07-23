@@ -9,12 +9,8 @@ class AuthState < T extends StatefulWidget > extends SupabaseAuthState < T > {
 
     if ( mounted ) {
 
-      print('kek3');
-
       Navigator.of ( context ).pushNamedAndRemoveUntil( '/hello', ( route ) => false );
 
-    }else{
-      print('kek4');
     }
 
   }

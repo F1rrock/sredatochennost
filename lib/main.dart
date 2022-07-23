@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project_sredatochennost/pages/hello_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:project_sredatochennost/pages/registration/confirm_email.dart';
@@ -54,11 +55,63 @@ class MyApp extends StatelessWidget {
 
               colorScheme: const ColorScheme.light ( ).copyWith ( primary: Colors.green ),
 
+              elevatedButtonTheme: ElevatedButtonThemeData (
+
+                style: ElevatedButton.styleFrom(
+
+                  primary: Colors.green,
+
+                  onPrimary: Colors.white,
+
+                ),
+
+              ),
+
+              appBarTheme: const AppBarTheme (
+
+                iconTheme: IconThemeData ( color: Colors.white ),
+
+                backgroundColor: Colors.green,
+
+                systemOverlayStyle: SystemUiOverlayStyle (
+
+                  statusBarColor: Colors.green,
+                  statusBarIconBrightness: Brightness.dark,
+                  statusBarBrightness: Brightness.light,
+
+                ),
+
+                foregroundColor: Colors.white,
+
+              ),
+
             ),
 
             darkTheme: ThemeData (
 
-              colorScheme: const ColorScheme.dark ( ),
+              colorScheme: const ColorScheme.dark ( ).copyWith ( primary: Colors.blue ),
+
+              elevatedButtonTheme: ElevatedButtonThemeData (
+
+                style: ElevatedButton.styleFrom(
+
+                  primary: Colors.blue,
+
+                  onPrimary: Colors.white,
+
+                ),
+
+              ),
+
+              appBarTheme: const AppBarTheme (
+
+                iconTheme: IconThemeData ( color: Colors.white ),
+
+                backgroundColor: Colors.blue,
+
+                foregroundColor: Colors.white,
+
+              ),
 
             ),
 
@@ -82,9 +135,9 @@ class MyApp extends StatelessWidget {
 
           );
 
-        });
+        } );
 
-  }
+    }
 
 }
 
